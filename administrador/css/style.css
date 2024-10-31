@@ -1,0 +1,60 @@
+body,
+button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-width);
+  background-color: #343a40; /* Cor de fundo da barra lateral */
+  color: #fff; /* Cor do texto na barra lateral */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px; /* Espaçamento interno dos itens do menu */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+.sidebar-link:hover {
+  background-color: #495057; /* Cor de fundo ao passar o mouse */
+}
+
+.sidebar-link .right-icon {
+  margin-left: auto; /* Empurra o ícone para a direita */
+}
+
+.sidebar-link[aria-current="page"] {
+  background-color: #212529; /* Cor de fundo do item de menu selecionado */
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}
